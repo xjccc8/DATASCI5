@@ -1,0 +1,20 @@
+{
+  "canny_parameters": {
+    "threshold1": 30,
+    "threshold2": 100,
+    "aperture_size": 3,
+    "l2_gradient": true
+  },
+  "statistics": {
+    "edge_density_percent": 0.803375244140625,
+    "recommended_range": "1.5-3.0%"
+  },
+  "usage": {
+    "model_3": "U-Net + Canny Edge + DCNN Classifier",
+    "model_4": "ResNet-50 + Canny Edge + DCNN Classifier",
+    "note": "Apply Canny edge detection to preprocessed images before feeding to models 3 & 4"
+  },
+  "code_example": {
+    "python": "import cv2\nedges = cv2.Canny(\n    image,\n    threshold1=30,\n    threshold2=100,\n    apertureSize=3,\n    L2gradient=True\n)"
+  }
+}

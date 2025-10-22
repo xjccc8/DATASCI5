@@ -1,0 +1,31 @@
+{
+  "strategy": "class_weights",
+  "description": "Use these weights in your loss function (CRITICAL for all 4 models)",
+  "class_to_index": {
+    "NRG": 0,
+    "RG": 1
+  },
+  "class_weights_dict": {
+    "NRG": 1.0,
+    "RG": 1.0
+  },
+  "class_weights_array": [
+    1.0,
+    1.0
+  ],
+  "usage_pytorch": {
+    "code": "criterion = nn.CrossEntropyLoss(weight=torch.FloatTensor(class_weights_array).to(device))",
+    "note": "Apply weights to loss function during training for ALL 4 models"
+  },
+  "usage_tensorflow": {
+    "code": "model.fit(x_train, y_train, class_weight=class_weights_dict, ...)",
+    "note": "Pass class_weight parameter to fit() method"
+  },
+  "critical_reminders": [
+    "USE IN ALL 4 MODELS: U-Net, ResNet-50, U-Net+Canny, ResNet-50+Canny",
+    "Apply during training phase only (not validation/test)",
+    "Optimizes for sensitivity on minority class (RG - Referable Glaucoma)",
+    "Essential for medical imaging with class imbalance",
+    "Fair comparison requires same weights across all models"
+  ]
+}

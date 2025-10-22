@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-10-22T21:57:11.939063",
+  "base_directory": "C:\\Users\\justi\\Downloads\\DATASCI5",
+  "total_images": 19080,
+  "class_distribution": {
+    "NRG": 9540,
+    "RG": 9540
+  },
+  "splits": {
+    "train": {
+      "NRG": 8000,
+      "RG": 8000
+    },
+    "validation": {
+      "NRG": 770,
+      "RG": 770
+    },
+    "test": {
+      "NRG": 770,
+      "RG": 770
+    }
+  },
+  "imbalance_ratio": 1.0,
+  "minority_class": "NRG",
+  "majority_class": "NRG",
+  "class_weights": {
+    "NRG": 1.0,
+    "RG": 1.0
+  }
+}

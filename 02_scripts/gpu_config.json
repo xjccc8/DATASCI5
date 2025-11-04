@@ -1,0 +1,63 @@
+{
+  "hardware_specs": {
+    "gpu": "RTX 3070",
+    "gpu_memory_gb": 8,
+    "cpu": "Ryzen 7 5800X",
+    "cpu_cores": 8,
+    "cpu_threads": 16,
+    "ram_gb": 32,
+    "ram_speed_mhz": 3600
+  },
+
+  "optimization_settings": {
+    "use_gpu": true,
+    "gpu_device_id": 0,
+    "mixed_precision": true,
+    "cudnn_benchmark": true,
+    "cudnn_deterministic": false,
+
+    "batch_sizes": {
+      "preprocessing": 16,
+      "mask_generation_train": 8,
+      "mask_generation_inference": 12,
+      "unet_512_train": 4,
+      "unet_512_inference": 8,
+      "resnet50_256_train": 16,
+      "resnet50_256_inference": 32
+    },
+
+    "data_loading": {
+      "num_workers": 8,
+      "pin_memory": true,
+      "persistent_workers": true,
+      "prefetch_factor": 2
+    },
+
+    "memory_management": {
+      "max_vram_usage_percent": 90,
+      "enable_gradient_checkpointing": false,
+      "cache_images_in_ram": true,
+      "clear_cache_frequency": 100
+    },
+
+    "performance": {
+      "use_amp": true,
+      "tf32_enabled": true,
+      "use_channels_last": true,
+      "compile_model": false
+    }
+  },
+
+  "preprocessing_optimizations": {
+    "use_gpu_for_augmentation": true,
+    "batch_augmentation": true,
+    "opencv_num_threads": 8,
+    "use_tensor_ops": true
+  },
+
+  "monitoring": {
+    "log_gpu_stats": true,
+    "log_interval_steps": 10,
+    "profile_performance": false
+  }
+}

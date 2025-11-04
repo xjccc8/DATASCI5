@@ -1,15 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)",
-      "Bash(cp:*)",
-      "Bash(rm:*)",
-      "Bash(find:*)",
-      "Bash(python:*)",
-      "Bash(pip install:*)",
-      "Bash(where:*)",
+      "Bash(cmd /c cleanup_old_files.bat)",
+      "Bash(./cleanup_now.bat)",
+      "Bash(nvidia-smi:*)",
+      "Bash(nul)",
       "Bash(dir:*)",
-      "Bash(awk:*)"
+      "Bash(findstr:*)",
+      "Bash(python:*)",
+      "Bash(find:*)",
+      "Bash(timeout:*)",
+      "Bash(cmd /c \"if exist model1_best.pth (copy model1_best.pth model1_best_baseline.pth) else (echo No baseline checkpoint found)\")"
     ],
     "deny": [],
     "ask": []

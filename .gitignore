@@ -1,0 +1,44 @@
+# Model weights and checkpoints (too large for GitHub)
+*.pth
+*.pt
+*.h5
+*.ckpt
+
+# Processed data and generated masks (regenerable)
+processed_gpu/
+*_masks/
+generated_masks/
+
+# Training statistics
+*_stats.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+nul
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Local configuration
+.claude/settings.local.json

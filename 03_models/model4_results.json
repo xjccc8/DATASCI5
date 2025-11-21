@@ -1,0 +1,31 @@
+{
+    "model": "Model 4: U-Net V6 + CED + DenseNet121 Enhanced",
+    "test_accuracy": 0.9428571428571428,
+    "test_auc": 0.9784820374430764,
+    "test_precision": 0.9338422391857506,
+    "test_recall": 0.9532467532467532,
+    "test_f1": 0.9434447300771208,
+    "test_loss": 0.07614426907837213,
+    "confusion_matrix": [
+        [
+            359,
+            26
+        ],
+        [
+            18,
+            367
+        ]
+    ],
+    "best_val_auc": 0.9830123123629617,
+    "config": {
+        "batch_size": 32,
+        "learning_rate": 0.0001,
+        "num_epochs": 50,
+        "dropout_rates": [
+            0.6,
+            0.35,
+            0.25
+        ],
+        "features": "1024 DenseNet + 512 Multi-scale + 5 Clinical = 1541-dim (optimized)"
+    }
+}

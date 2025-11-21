@@ -1,5 +1,5 @@
 """
-Model 3: ResNet-50 Direct Classifier (Benchmark)
+Model 5: ResNet-50 Direct Classifier (Benchmark)
 ================================================================================
 
 Architecture:
@@ -18,7 +18,7 @@ Key Features:
 
 Purpose:
 - Baseline comparison for U-Net segmentation approach
-- Test if segmentation-based approach (Models 1-2) outperforms direct classification
+- Test if segmentation-based approach (Models 1-4) outperforms direct classification
 
 Created: 2025-11-04
 Data Source: processed_gpu/train/, processed_gpu/test/, processed_gpu/validation/
@@ -51,7 +51,7 @@ warnings.filterwarnings('ignore')
 # ============================================================================
 
 class Config:
-    """Model 3 Configuration"""
+    """Model 5 Configuration"""
 
     # Paths - ONLY use processed_gpu folders
     DATA_ROOT = 'processed_gpu'
@@ -63,8 +63,8 @@ class Config:
     TEST_NRG = os.path.join(DATA_ROOT, 'test', 'NRG')
 
     # Output paths
-    MODEL_SAVE_PATH = 'model3_best.pth'
-    RESULTS_PATH = 'model3_results.json'
+    MODEL_SAVE_PATH = 'model5_best.pth'
+    RESULTS_PATH = 'model5_results.json'
 
     # Training hyperparameters
     BATCH_SIZE = 32  # Larger batch for direct classification
@@ -398,7 +398,7 @@ def train_model(model, train_loader, val_loader, device):
     """Complete training loop with early stopping"""
 
     print("\n" + "="*80)
-    print("Starting Model 3 Training: ResNet-50 Direct Classifier")
+    print("Starting Model 5 Training: ResNet-50 Direct Classifier")
     print("="*80)
 
     # Loss and optimizer
@@ -564,7 +564,7 @@ def main():
     """Main training pipeline"""
 
     print("\n" + "="*80)
-    print("Model 3: ResNet-50 Direct Classifier (Benchmark)")
+    print("Model 5: ResNet-50 Direct Classifier (Benchmark)")
     print("="*80)
     print(f"Device: {Config.DEVICE}")
     print(f"Data Source: {Config.DATA_ROOT}/")
@@ -578,7 +578,7 @@ def main():
     train_loader, val_loader, test_loader = create_data_loaders()
 
     # Create model
-    print("\nCreating Model 3...")
+    print("\nCreating Model 5...")
     model = ResNet50Classifier(num_classes=1, dropout_rate=0.5)
     model = model.to(Config.DEVICE)
 
@@ -601,7 +601,7 @@ def main():
 
     # Save results
     results = {
-        'model': 'Model 3: ResNet-50 Direct Classifier (Benchmark)',
+        'model': 'Model 5: ResNet-50 Direct Classifier (Benchmark)',
         'architecture': {
             'backbone': 'ResNet-50 (ImageNet pretrained)',
             'classifier': 'Custom FC head with dropout',
@@ -639,7 +639,7 @@ def main():
     print(f"✓ Model saved to {Config.MODEL_SAVE_PATH}")
 
     print("\n" + "="*80)
-    print("Model 3 Training Complete!")
+    print("Model 5 Training Complete!")
     print("="*80)
     print(f"Final Test Accuracy: {test_metrics['accuracy']*100:.2f}%")
     print(f"Final Test AUC: {test_metrics['auc']:.4f}")

@@ -1,5 +1,5 @@
 """
-Model 4: ResNet-50 + Canny Edge Detection Direct Classifier
+Model 6: ResNet-50 + Canny Edge Detection Direct Classifier
 ================================================================================
 
 Architecture:
@@ -16,11 +16,11 @@ Key Features:
 - Input size: 256×256
 - Data from processed_gpu/ folders ONLY
 - Mixed precision training (FP16)
-- Expected: 90-92% accuracy, 0.93-0.95 AUC (highest of all 4 models)
+- Expected: 90-92% accuracy, 0.93-0.95 AUC
 
 Purpose:
 - Test if Canny edge detection improves direct classification
-- Compare with Model 3 (no Canny) to measure Canny benefit
+- Compare with Model 5 (no Canny) to measure Canny benefit
 - Potentially beat Jisy Nj et al. benchmark (90.91%)
 
 Created: 2025-11-04
@@ -54,7 +54,7 @@ warnings.filterwarnings('ignore')
 # ============================================================================
 
 class Config:
-    """Model 4 Configuration"""
+    """Model 6 Configuration"""
 
     # Paths - ONLY use processed_gpu folders
     DATA_ROOT = 'processed_gpu'
@@ -66,8 +66,8 @@ class Config:
     TEST_NRG = os.path.join(DATA_ROOT, 'test', 'NRG')
 
     # Output paths
-    MODEL_SAVE_PATH = 'model4_best.pth'
-    RESULTS_PATH = 'model4_results.json'
+    MODEL_SAVE_PATH = 'model6_best.pth'
+    RESULTS_PATH = 'model6_results.json'
 
     # Training hyperparameters
     BATCH_SIZE = 32
@@ -599,7 +599,7 @@ def main():
     """Main training pipeline"""
 
     print("\n" + "="*80)
-    print("Model 4: ResNet-50 + Canny Edge Detection")
+    print("Model 6: ResNet-50 + Canny Edge Detection")
     print("="*80)
     print(f"Device: {Config.DEVICE}")
     print(f"Data Source: {Config.DATA_ROOT}/")
@@ -613,7 +613,7 @@ def main():
     train_loader, val_loader, test_loader = create_data_loaders()
 
     # Create model
-    print("\nCreating Model 4...")
+    print("\nCreating Model 6...")
     model = ResNet50Classifier_6Channel(num_classes=1, dropout_rate=0.5)
     model = model.to(Config.DEVICE)
 
@@ -633,7 +633,7 @@ def main():
 
     # Save results
     results = {
-        'model': 'Model 4: ResNet-50 + Canny Edge Detection',
+        'model': 'Model 6: ResNet-50 + Canny Edge Detection',
         'architecture': {
             'backbone': 'ResNet-50 (6-channel input, ImageNet pretrained)',
             'input': 'RGB fundus image + Canny edges (6 channels)',
@@ -672,7 +672,7 @@ def main():
     print(f"✓ Model saved to {Config.MODEL_SAVE_PATH}")
 
     print("\n" + "="*80)
-    print("Model 4 Training Complete!")
+    print("Model 6 Training Complete!")
     print("="*80)
     print(f"Final Test Accuracy: {test_metrics['accuracy']*100:.2f}%")
     print(f"Final Test AUC: {test_metrics['auc']:.4f}")

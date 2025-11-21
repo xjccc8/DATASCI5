@@ -1,0 +1,29 @@
+{
+    "model": "Model 3: U-Net V6 + DenseNet121",
+    "test_accuracy": 0.9194805194805195,
+    "test_auc": 0.9809445100354192,
+    "test_precision": 0.9473684210526315,
+    "test_recall": 0.8883116883116883,
+    "test_f1": 0.9168900804289544,
+    "test_loss": 0.03537699727551496,
+    "confusion_matrix": [
+        [
+            366,
+            19
+        ],
+        [
+            43,
+            342
+        ]
+    ],
+    "best_val_auc": 0.9879035250463823,
+    "config": {
+        "batch_size": 24,
+        "learning_rate": 0.0001,
+        "num_epochs": 50,
+        "dropout_rates": [
+            0.5,
+            0.3
+        ]
+    }
+}
